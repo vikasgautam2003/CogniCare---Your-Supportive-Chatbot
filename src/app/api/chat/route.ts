@@ -1,7 +1,8 @@
 // FILE: src/app/api/chat/route.ts
 "use server"
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI, Content } from "@google/generative-ai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
 
 export async function POST(req: Request) {
   try {
