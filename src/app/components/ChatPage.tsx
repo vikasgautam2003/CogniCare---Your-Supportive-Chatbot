@@ -1,3 +1,8 @@
+
+
+
+
+
 "use client";
 import { useState, useEffect, useRef } from 'react';
 import { Message } from '../types';
@@ -17,14 +22,21 @@ const ChatPage = () => {
     }
   }, [chatHistory, isLoading]);
 
-  useEffect(() => {
-    setChatHistory([
-      {
-        role: 'model',
-        parts: [{ text: "Hello! I'm your new, uniquely designed AI assistant. How can I help you today?" }],
-      },
-    ]);
-  }, []);
+
+const handlePromptSelect = (prompt: string) => {
+  setUserInput(prompt);   // 👈 fill the input field
+};
+
+
+
+  // useEffect(() => {
+  //   setChatHistory([
+  //     {
+  //       role: 'model',
+  //       parts: [{ text: "👋 Hey there! I'm your new AI assistant. How can I help you today?" }],
+  //     },
+  //   ]);
+  // }, []);
 
   const handleSendMessage = async () => {
     if (!userInput.trim() || isLoading) return;
@@ -57,7 +69,7 @@ const ChatPage = () => {
       console.error('Failed to send message:', error);
       setChatHistory((prevHistory) => [
         ...prevHistory,
-        { role: 'model', parts: [{ text: `Sorry, an error occurred: ${error.message}` }] },
+        { role: 'model', parts: [{ text: `⚠️ Oops! ${error.message}` }] },
       ]);
     } finally {
       setIsLoading(false);
@@ -65,15 +77,26 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="h-full w-full flex flex-col bg-gray-50 font-sans max-w-7xl mx-auto shadow-2xl rounded-2xl overflow-hidden">
-      <Header />
-      <ChatContainer chatHistory={chatHistory} isLoading={isLoading} ref={chatContainerRef} />
-      <InputArea
-        userInput={userInput}
-        setUserInput={setUserInput}
-        isLoading={isLoading}
-        handleSendMessage={handleSendMessage}
-      />
+    <div className="h-screen w-screen flex flex-col bg-white dark:bg-black text-gray-900 dark:text-gray-100 font-sans">
+      {/* Header */}
+      <div className="border-b border-gray-200 dark:border-gray-800">
+        <Header />
+      </div>
+
+      {/* Chat Container - fills remaining height */}
+      <div className="flex-1 min-h-0" ref={chatContainerRef}>
+        <ChatContainer chatHistory={chatHistory} isLoading={isLoading} onPromptSelect={handlePromptSelect} />
+      </div>
+
+      {/* Input Area */}
+      <div className=" border-gray-200 bg-white p-4">
+        <InputArea
+          userInput={userInput}
+          setUserInput={setUserInput}
+          isLoading={isLoading}
+          handleSendMessage={handleSendMessage}
+        />
+      </div>
     </div>
   );
 };
