@@ -1,5 +1,5 @@
 // FILE: src/app/api/chat/route.ts
-
+"use server"
 import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI, Content } from "@google/generative-ai";
 
