@@ -65,15 +65,34 @@ const handlePromptSelect = (prompt: string) => {
         ...prevHistory,
         { role: 'model', parts: [{ text: botResponse }] },
       ]);
-    } catch (error: unknown) {
-      console.error('Failed to send message:', error);
-      setChatHistory((prevHistory) => [
-        ...prevHistory,
-        { role: 'model', parts: [{ text: `⚠️ Oops! ${error.message}` }] },
-      ]);
-    } finally {
-      setIsLoading(false);
-    }
+    // } catch (error: unknown) {
+    //   console.error('Failed to send message:', error);
+    //   setChatHistory((prevHistory) => [
+    //     ...prevHistory,
+    //     { role: 'model', parts: [{ text: `⚠️ Oops! ${error.message}` }] },
+    //   ]);
+    // } finally {
+    //   setIsLoading(false);
+    // }
+          } catch (error: unknown) {
+        console.error('Failed to send message:', error);
+
+        let errorMessage = 'Something went wrong';
+
+        if (error instanceof Error) {
+          errorMessage = error.message;
+        } else if (typeof error === 'string') {
+          errorMessage = error;
+        }
+
+        setChatHistory((prevHistory) => [
+          ...prevHistory,
+          { role: 'model', parts: [{ text: `⚠️ Oops! ${errorMessage}` }] },
+        ]);
+      } finally {
+        setIsLoading(false);
+      }
+
   };
 
   return (
