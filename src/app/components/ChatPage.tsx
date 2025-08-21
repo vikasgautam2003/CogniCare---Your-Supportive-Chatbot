@@ -65,7 +65,7 @@ const handlePromptSelect = (prompt: string) => {
         ...prevHistory,
         { role: 'model', parts: [{ text: botResponse }] },
       ]);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to send message:', error);
       setChatHistory((prevHistory) => [
         ...prevHistory,
