@@ -12,14 +12,14 @@ import Link from 'next/link';
 import FAQComponent from './components/Comp_Homepage/Faq';
 
 const Home = () => {
-  // Create a ref to target the video container
+  
   const videoContainerRef = useRef<HTMLDivElement>(null);
 
-  // useEffect to handle the scroll animation
+  
   useEffect(() => {
     const handleScroll = () => {
       if (videoContainerRef.current) {
-        // This moves the video down at half the scroll speed, creating a "sticky" parallax effect
+      
         videoContainerRef.current.style.transform = `translateY(${window.scrollY * 0.5}px)`;
       }
     };
