@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 const TestimonialsComponent = () => {
-  // Integrated animation logic to ensure it works seamlessly
+  // A ref on the main section to find the animatable children
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -20,10 +20,11 @@ const TestimonialsComponent = () => {
       { threshold: 0.1 } // Animate when 10% of the element is visible
     );
 
+    // Find and observe each testimonial card individually for a precise reveal
     const itemsToAnimate = element.querySelectorAll('.testimonial-card');
-    if (itemsToAnimate.length > 0) {
-      itemsToAnimate.forEach((item) => observer.observe(item));
-    }
+    itemsToAnimate.forEach((item) => {
+      observer.observe(item);
+    });
 
     return () => {
       observer.disconnect();
@@ -32,20 +33,22 @@ const TestimonialsComponent = () => {
 
   return (
     <>
-      {/* Keyframes for the reveal animation */}
       <style jsx global>{`
-        @keyframes reveal {
-          from {
-            opacity: 0;
-            transform: translateY(50px) scale(0.98);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
+        /* --- Animation Repaired using CSS Transition --- */
+
+        /* 1. Define the initial, "hidden" state for the cards. */
+        .testimonial-card {
+          opacity: 0;
+          transform: translateY(50px) scale(0.95) translateZ(0); /* Added translateZ for hardware acceleration */
+          will-change: transform, opacity;
+          transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                      opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-        .animate-reveal {
-          animation: reveal 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
+        /* 2. Define the final, "visible" state. */
+        .testimonial-card.animate-reveal {
+          opacity: 1;
+          transform: translateY(0) scale(1) translateZ(0);
         }
       `}</style>
 
@@ -68,11 +71,11 @@ const TestimonialsComponent = () => {
             {/* Testimonial Card 1: Neurosurgeon */}
             <div 
               className="testimonial-card bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:-translate-y-2"
-              style={{ animationDelay: '0.1s' }}
+              style={{ transitionDelay: '0.15s' }}
             >
               <img 
                 src="/ankit.jpg" 
-                alt="Dr. Anya Sharma" 
+                alt="Dr. Pranav Kumar" 
                 className="w-24 h-24 rounded-full object-cover mx-auto mb-6 border-4 border-gray-700 shadow-lg"
               />
               <p className="text-gray-300 text-center italic mb-6">
@@ -87,11 +90,11 @@ const TestimonialsComponent = () => {
             {/* Testimonial Card 2: Chemical Engineer */}
             <div 
               className="testimonial-card bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:-translate-y-2"
-              style={{ animationDelay: '0.3s' }}
+              style={{ transitionDelay: '0.30s' }}
             >
               <img 
                 src="/tarun.jpg" 
-                alt="Mr. Leo Chen" 
+                alt="Mr. Tarun Chen" 
                 className="w-24 h-24 rounded-full object-cover mx-auto mb-6 border-4 border-gray-700 shadow-lg"
               />
               <p className="text-gray-300 text-center italic mb-6">
@@ -99,18 +102,18 @@ const TestimonialsComponent = () => {
               </p>
               <div className="text-center">
                 <h3 className="font-bold text-xl text-white">Mr. Tarun Chen</h3>
-                <p className="text-teal-600 font-medium">Chemical Engineer</p>
+                <p className="text-teal-300 font-medium">Chemical Engineer</p>
               </div>
             </div>
 
             {/* Testimonial Card 3: Fitness Trainer */}
             <div 
               className="testimonial-card bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:-translate-y-2"
-              style={{ animationDelay: '0.5s' }}
+              style={{ transitionDelay: '0.45s' }}
             >
               <img 
                 src="pranav.jpg" 
-                alt="Ms. Jasmine Reed" 
+                alt="Mr. Ankit Reed" 
                 className="w-24 h-24 rounded-full object-cover mx-auto mb-6 border-4 border-gray-700 shadow-lg"
               />
               <p className="text-gray-300 text-center italic mb-6">

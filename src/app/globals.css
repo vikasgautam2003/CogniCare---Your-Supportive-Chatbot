@@ -7,3 +7,51 @@
 html {
   font-family: "Poppins", system-ui, sans-serif;
 }
+
+
+
+/* --- Keyframes for Loader --- */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-medium {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0; }
+  50% { opacity: 1; }
+  60% { transform: scale(1.2); }
+}
+@keyframes progress {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* --- CSS Rules for Loader Animations (Tailwind v4 Way) --- */
+.pulse-ring-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.pulse-ring-medium {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 1s;
+}
+
+.orbit-container-slow {
+  animation: spin-slow 10s linear infinite;
+}
+.orbit-container-medium {
+  animation: spin-medium 6s linear infinite;
+}
+
+.progress-bar {
+  width: 50%;
+  animation: progress 2s linear infinite;
+}
+
+.glowing-core {
+  --glow-color: @theme(colors.cyan.400);
+  --glow-color-deeper: @theme(colors.cyan.500);
+  box-shadow: 0 0 20px var(--glow-color), 0 0 40px var(--glow-color-deeper);
+}

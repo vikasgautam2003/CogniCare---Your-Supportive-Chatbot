@@ -9,6 +9,7 @@ import WhyUsComponent from './components/Comp_Homepage/Whyus';
 import TestimonialsComponent from './components/Comp_Homepage/Testimonial';
 import FooterComponent from './components/Comp_Homepage/Footer';
 import Link from 'next/link';
+import FAQComponent from './components/Comp_Homepage/Faq';
 
 const Home = () => {
   // Create a ref to target the video container
@@ -49,7 +50,7 @@ const Home = () => {
             muted 
             className="w-full h-full object-cover"
           >
-            <source src="/happy.mp4" type="video/mp4" />
+            <source src="/friend.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           {/* Dark Blue Overlay */}
@@ -109,6 +110,9 @@ const Home = () => {
       </div>
       <div className='bg-[#0a0a2a]'>
         <TestimonialsComponent />
+      </div>
+      <div className='bg-[#0a0a2a]'>
+        <FAQComponent />
       </div>
       <FooterComponent />
     </>

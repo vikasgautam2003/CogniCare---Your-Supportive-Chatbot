@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@google/generative-ai": "^0.24.1",
     "@heroicons/react": "^2.2.0",
     "next": "15.5.0",
@@ -26,7 +27,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-
   "engines": {
     "node": "22.x"
   }
