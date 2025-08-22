@@ -23,35 +23,88 @@ export default function Loading() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a2a] text-white overflow-hidden">
-      {/* AI Core Animation */}
-      <div className="relative flex items-center justify-center w-48 h-48">
-        
-        {/* We use simple, targetable class names now */}
-        <div className="pulse-ring-slow absolute w-full h-full rounded-full border-2 border-cyan-400/30"></div>
-        <div className="pulse-ring-medium absolute w-2/3 h-2/3 rounded-full border-2 border-cyan-400/30"></div>
-        
-        {/* Central Glowing Core */}
-        <div className="glowing-core w-16 h-16 bg-cyan-400 rounded-full"></div>
+    <>
+      {/* All CSS for the loader is now self-contained in this component */}
+      <style jsx global>{`
+        /* --- Keyframes for Loader --- */
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes spin-medium {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(-360deg); }
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(0.8); opacity: 0; }
+          50% { opacity: 1; }
+          60% { transform: scale(1.2); }
+        }
+        @keyframes progress {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
 
-        {/* Orbiting Particles */}
-        <div className="orbit-container-slow absolute w-full h-full">
-          <div className="absolute top-0 left-1/2 w-3 h-3 bg-white rounded-full shadow-[0_0_10px_white]"></div>
+        /* --- CSS Rules for Loader Animations --- */
+        .pulse-ring-slow {
+          animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .pulse-ring-medium {
+          animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation-delay: 1s;
+        }
+
+        .orbit-container-slow {
+          animation: spin-slow 10s linear infinite;
+        }
+        .orbit-container-medium {
+          animation: spin-medium 6s linear infinite;
+        }
+
+        .progress-bar {
+          width: 50%;
+          animation: progress 2s linear infinite;
+        }
+
+        .glowing-core {
+          /* Hardcoded colors for self-containment, 
+            as @theme doesn't work in <style jsx>.
+            #22d3ee is cyan-400, #06b6d4 is cyan-500.
+          */
+          box-shadow: 0 0 20px #22d3ee, 0 0 40px #06b6d4;
+        }
+      `}</style>
+
+      <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a2a] text-white overflow-hidden">
+        {/* AI Core Animation */}
+        <div className="relative flex items-center justify-center w-48 h-48">
+          
+          {/* We use simple, targetable class names now */}
+          <div className="pulse-ring-slow absolute w-full h-full rounded-full border-2 border-cyan-400/30"></div>
+          <div className="pulse-ring-medium absolute w-2/3 h-2/3 rounded-full border-2 border-cyan-400/30"></div>
+          
+          {/* Central Glowing Core */}
+          <div className="glowing-core w-16 h-16 bg-cyan-400 rounded-full"></div>
+
+          {/* Orbiting Particles */}
+          <div className="orbit-container-slow absolute w-full h-full">
+            <div className="absolute top-0 left-1/2 w-3 h-3 bg-white rounded-full shadow-[0_0_10px_white]"></div>
+          </div>
+          <div className="orbit-container-medium absolute w-2/3 h-2/3">
+            <div className="absolute bottom-0 right-1/2 w-2 h-2 bg-white rounded-full shadow-[0_0_8px_white]"></div>
+          </div>
         </div>
-        <div className="orbit-container-medium absolute w-2/3 h-2/3">
-          <div className="absolute bottom-0 right-1/2 w-2 h-2 bg-white rounded-full shadow-[0_0_8px_white]"></div>
+        
+        {/* Dynamic Loading Text */}
+        <p className="mt-12 text-xl text-cyan-300 font-mono tracking-widest transition-opacity duration-500">
+          {loadingTexts[currentTextIndex]}
+        </p>
+
+        {/* Indeterminate Progress Bar */}
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-cyan-900/50 overflow-hidden">
+          <div className="progress-bar h-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
         </div>
       </div>
-      
-      {/* Dynamic Loading Text */}
-      <p className="mt-12 text-xl text-cyan-300 font-mono tracking-widest transition-opacity duration-500">
-        {loadingTexts[currentTextIndex]}
-      </p>
-
-      {/* Indeterminate Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-cyan-900/50 overflow-hidden">
-        <div className="progress-bar h-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
-      </div>
-    </div>
+    </>
   );
 }
