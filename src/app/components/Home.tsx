@@ -61,24 +61,24 @@ const Home = () => {
             <div className="text-2xl font-extrabold tracking-tight">CogniCare</div>
             
             <div className="hidden md:flex items-center space-x-30 text-gray-300 font-semibold">
-              <a href="#" className="hover:text-white transition-colors duration-300 cursor-pointer">About</a>
-              <a href="#" className="hover:text-white transition-colors duration-300 cursor-pointer">Contact</a>
-              <a href="#" className="hover:text-white transition-colors duration-300 cursor-pointer">Gemini</a>
+              <a href="#about" className="hover:text-white transition-colors duration-300 cursor-pointer">About</a>
+              <a href="#" className="hover:text-white transition-colors duration-300 cursor-pointer">Speciality</a>
+              <a href="https://gemini.google.com/app" className="hover:text-white transition-colors duration-300 cursor-pointer">Gemini</a>
             </div>
 
             {/* Hide Login on mobile */}
             <div className="hidden md:flex items-center space-x-8">
              <Link href="/login">
-        <button className="font-semibold text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer">
-          Login
-        </button>
-      </Link>
+                  <button className="font-semibold text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer">
+                    Login
+                  </button>
+                </Link>
 
-      <Link href="/signup">
-        <button className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold px-6 py-2 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
-          Sign Up
-        </button>
-      </Link>
+                <Link href="/signup">
+                  <button className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold px-6 py-2 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+                    Sign Up
+                  </button>
+                </Link>
             </div>
           </nav>
 
@@ -99,15 +99,15 @@ const Home = () => {
                 Login
               </button> */}
                <Link href="/login" className="w-full sm:w-auto">
-      <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold px-10 py-4 rounded-lg hover:bg-white/20 transition-all duration-300 text-lg shadow-lg cursor-pointer block text-center">
-        Login
-      </button>
-    </Link>
-              <Link href="/signup" className="w-full sm:w-auto">
-                <button className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold px-10 py-4 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 text-lg cursor-pointer w-full sm:w-auto">
-                  Get Started
-                </button>
-              </Link>
+                    <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold px-10 py-4 rounded-lg hover:bg-white/20 transition-all duration-300 text-lg shadow-lg cursor-pointer w-full sm:w-auto">
+                      Login
+                    </button>
+                  </Link>
+                  <Link href="/signup" className="w-full sm:w-auto">
+                    <button className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold px-10 py-4 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 text-lg cursor-pointer w-full sm:w-auto">
+                      Get Started
+                    </button>
+                  </Link>
             </div>
 
           </div>
