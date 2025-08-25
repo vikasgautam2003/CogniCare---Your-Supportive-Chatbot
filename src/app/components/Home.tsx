@@ -68,12 +68,17 @@ const Home = () => {
 
             {/* Hide Login on mobile */}
             <div className="hidden md:flex items-center space-x-8">
-              <button className="font-semibold text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer">
-                Login
-              </button>
-              <button className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold px-6 py-2 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
-                Sign Up
-              </button>
+             <Link href="/login">
+        <button className="font-semibold text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer">
+          Login
+        </button>
+      </Link>
+
+      <Link href="/signup">
+        <button className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold px-6 py-2 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
+          Sign Up
+        </button>
+      </Link>
             </div>
           </nav>
 
