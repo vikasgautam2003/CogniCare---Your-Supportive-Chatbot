@@ -12,7 +12,7 @@ CogniCare is a **healthcare chatbot platform** built with **Next.js**, **Tailwin
 
 ---
 
-### ▶️ [Live Demo](https://your-cognicare-website.vercel.app)
+### ▶️ [Live Demo]([https://your-cognicare-website.vercel.app])
 
 ---
 
