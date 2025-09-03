@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ["placehold.co"], // allow external placeholder images
   },
+   output: 'standalone',
 
   // ✅ Add this block so ESLint warnings/errors won't block deploy
   eslint: {

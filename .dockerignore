@@ -1,0 +1,13 @@
+Ignore local development folders and files
+node_modules
+.next
+npm-debug.log
+README.md
+.env
+.env.local
+.env.production
+.env.development
+
+Docker files
+Dockerfile
+.dockerignore

@@ -93,10 +93,13 @@ const Home = () => {
 
             {/* Buttons (stack vertically on mobile) */}
            {/* Buttons (stack vertically on mobile, centered on desktop) */}
+
             <div className="mt-12 flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center items-center">
+              <Link href="/chatbot" className="w-full sm:w-auto">
               <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold px-10 py-4 rounded-lg hover:bg-white/20 transition-all duration-300 text-lg shadow-lg cursor-pointer w-full sm:w-auto">
-                Login
+                Demo
               </button>
+              </Link>
               <Link href="/signup" className="w-full sm:w-auto">
                 <button className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold px-10 py-4 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 text-lg cursor-pointer w-full sm:w-auto">
                   Get Started
