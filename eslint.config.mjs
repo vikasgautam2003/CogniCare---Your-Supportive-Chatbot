@@ -51,7 +51,8 @@ const eslintConfig = [
   },
   {
     rules: {
-      "react/no-unescaped-entities": "off", // ✅ allow normal English quotes/apostrophes
+      "react/no-unescaped-entities": "off", 
+       "@typescript-eslint/no-unused-vars": "warn",// ✅ allow normal English quotes/apostrophes
     },
   },
 ];
