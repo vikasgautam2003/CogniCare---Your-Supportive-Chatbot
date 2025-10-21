@@ -24,7 +24,7 @@ const ChatPage = () => {
   const [chatHistory, setChatHistory] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // <-- ADD STATE FOR SIDEBAR
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -95,11 +95,11 @@ const ChatPage = () => {
     <div className="h-screen w-screen flex bg-[#0a0a2a] text-gray-200 font-sans">
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       
-      {/* Main Content Area */}
+
       <main className="flex-1 flex flex-col h-screen">
-        {/* Header */}
+
         <div className="border-b border-slate-800 flex items-center justify-between">
-            {/* --- ADD HAMBURGER MENU BUTTON FOR MOBILE --- */}
+        
             <button 
                 onClick={() => setIsSidebarOpen(true)}
                 className="p-4 text-slate-400 hover:text-white lg:hidden"

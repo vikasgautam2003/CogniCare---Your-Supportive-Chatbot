@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    
-     "build": "next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate"
@@ -14,9 +13,18 @@
     "@emailjs/browser": "^4.4.1",
     "@google/generative-ai": "^0.24.1",
     "@heroicons/react": "^2.2.0",
+    "@langchain/community": "^1.0.0",
+    "@langchain/core": "^1.0.1",
+    "@langchain/google-genai": "^1.0.0",
+    "@langchain/pinecone": "^1.0.0",
+    "@langchain/textsplitters": "^1.0.0",
+    "@pinecone-database/pinecone": "^6.1.2",
     "@prisma/client": "^6.14.0",
     "bcrypt": "^6.0.0",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
     "jsonwebtoken": "^9.0.2",
+    "langchain": "^1.0.1",
     "next": "15.5.0",
     "pg": "^8.16.3",
     "prisma": "^6.14.0",
@@ -33,7 +41,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": "22.x"
