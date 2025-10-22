@@ -2,13 +2,20 @@
 
 A RAG-powered, empathetic AI chatbot providing supportive conversations and information grounded in authoritative mental health resources.
 
-![Next.js](https://img-shields.io/badge/Next.js-000000?logo=next.js&logoColor=white&style=for-the-badge)
-![TypeScript](https://img-shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
-![LangChain](https://img-shields.io/badge/LangChain-38B2AC?logo=langchain&logoColor=white&style=for-the-badge)
-![Google Gemini](https://img-shields.io/badge/Google_Gemini-8E77F7?logo=google-gemini&logoColor=white&style=for-the-badge)
-![Pinecone](https://img-shields.io/badge/Pinecone-3C84F3?logo=pinecone&logoColor=white&style=for-the-badge)
-![Tailwind CSS](https://img-shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white&style=for-the-badge)
-![Node.js](https://img-shields.io/badge/Node.js-339933?logo=node.js&logoColor=white&style=for-the-badge)
+### Technologies Used
+
+**Frontend & Styling**  
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white&style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white&style=for-the-badge)
+
+**AI & Backend**  
+![LangChain](https://img.shields.io/badge/LangChain-38B2AC?logo=langchain&logoColor=white&style=for-the-badge)
+![Google Gemini](https://img.shields.io/badge/Google_Gemini-8E77F7?logo=google-gemini&logoColor=white&style=for-the-badge)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white&style=for-the-badge)
+
+**Database & Vector Storage**  
+![Pinecone](https://img.shields.io/badge/Pinecone-3C84F3?logo=pinecone&logoColor=white&style=for-the-badge)
 
 ---
 
